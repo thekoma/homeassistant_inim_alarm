@@ -345,8 +345,8 @@ class InimDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         if not self.data:
             return
 
-        zone_list = event_data.get("ZoneList", [])
-        area_list = event_data.get("AreaList", [])
+        zone_list = event_data.get("ZoneList") or []
+        area_list = event_data.get("AreaList") or []
 
         if not zone_list and not area_list:
             return
