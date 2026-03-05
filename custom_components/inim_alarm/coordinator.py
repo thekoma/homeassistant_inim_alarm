@@ -342,7 +342,7 @@ class InimDataUpdateCoordinator(DataUpdateCoordinator[dict[str, Any]]):
         Patches current coordinator data in-place with zone/area updates
         and notifies listeners immediately.
         """
-        if not self.data:
+        if not self.data or not isinstance(event_data, dict):
             return
 
         zone_list = event_data.get("ZoneList") or []
